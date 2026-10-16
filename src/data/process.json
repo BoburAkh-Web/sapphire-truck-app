@@ -1,0 +1,30 @@
+{
+  "title": "How it Works with Us",
+  "description": "Coordinating logistics with precision is crucial, especially when time is a critical factor. At Sapphire, we simplify the process, ensuring a smooth journey for your shipments from the initial inquiry to the final destination.",
+  "button": {
+    "label": "Contact Us",
+    "href": "#contact"
+  },
+  "steps": [
+    {
+      "id": 1,
+      "icon": "truck",
+      "text": "Choose Your Optimal Truck Type and Get Instant Pricing"
+    },
+    {
+      "id": 2,
+      "icon": "mail",
+      "text": "Share Your Shipment Details"
+    },
+    {
+      "id": 3,
+      "icon": "file-check",
+      "text": "Tailored Solutions Proposal"
+    },
+    {
+      "id": 4,
+      "icon": "package-check",
+      "text": "Your Cargo is En Route"
+    }
+  ]
+}

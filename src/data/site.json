@@ -1,0 +1,13 @@
+{
+  "name": "Sapphire Transportation",
+  "address": "570 Le Parc CIR, Buffalo Grove, IL 60089",
+  "email": "info@sapphire-transportation.com",
+  "phones": [
+    { "label": "(224) 222-1201", "href": "tel:+12242221201" },
+    { "label": "(224) 222-0582", "href": "tel:+12242220582" }
+  ],
+  "workingHours": {
+    "topBar": "Available every day of the year 24 / 7 / 52",
+    "footer": "24 / 7 / 52"
+  }
+}

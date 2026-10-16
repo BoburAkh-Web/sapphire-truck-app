@@ -1,0 +1,20 @@
+{
+  "title": {
+    "start": "RUNNING ON THE POWER OF",
+    "highlight": "PROMISES",
+    "end": "KEPT"
+  },
+  "description": "Our priority relies on ensuring your packages reach their destination in record time, bringing you unparalleled speed and reliability.",
+  "slides": [
+    {
+      "id": 1,
+      "image": "hero-night-highway.webp",
+      "alt": "Orange semi truck driving on a highway at night"
+    },
+    {
+      "id": 2,
+      "image": "hero-sunset-highway.webp",
+      "alt": "Semi truck on a highway at sunset"
+    }
+  ]
+}

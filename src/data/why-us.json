@@ -1,0 +1,30 @@
+{
+  "badge": "WHY CHOOSE SAPPHIRE",
+  "title": "Why run with Sapphire Transportation?",
+  "items": [
+    {
+      "id": 1,
+      "icon": "globe",
+      "title": "Rapid Deliveries Across USA & Canada",
+      "text": "Streamline your expedited truck shipment with us all over the USA and Canada to ensure your packages reach their destination in the shortest possible time."
+    },
+    {
+      "id": 2,
+      "icon": "truck",
+      "title": "Fast and reliable delivery.",
+      "text": "Ensuring fast and reliable delivery of your goods - we understand the importance of time sensitive shipments and prioritize efficiency. Experience hassle-free expedited truck shipment."
+    },
+    {
+      "id": 3,
+      "icon": "map-pin",
+      "title": "Real-time tracking and updates.",
+      "text": "Track your shipments in real-time and receive regular updates on their status. Stay informed every step of the way."
+    },
+    {
+      "id": 4,
+      "icon": "headset",
+      "title": "Dedicated customer support",
+      "text": "Customer satisfaction is prioritized - customer support team is available 24/7 to assist you with any queries or concerns with regard to your expedited shipment."
+    }
+  ]
+}

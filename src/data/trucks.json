@@ -1,0 +1,39 @@
+{
+  "title": "Truck Types",
+  "perMileLabel": "Per mile",
+  "quickPay": "Quick pay included",
+  "trucks": [
+    {
+      "id": 1,
+      "name": "Sprinter Van",
+      "image": "sprinter-van.svg",
+      "pricingType": "perMile",
+      "from": 0.8,
+      "to": 1
+    },
+    {
+      "id": 2,
+      "name": "Small Straight Truck",
+      "image": "small-straight-truck.svg",
+      "pricingType": "perMile",
+      "from": 1.1,
+      "to": 1.4
+    },
+    {
+      "id": 3,
+      "name": "Large Straight Truck",
+      "image": "large-straight-truck.svg",
+      "pricingType": "perMile",
+      "from": 1.6,
+      "to": 2.1
+    },
+    {
+      "id": 4,
+      "name": "Semi Truck",
+      "image": "semi-truck.svg",
+      "pricingType": "percent",
+      "from": 10,
+      "to": 13
+    }
+  ]
+}

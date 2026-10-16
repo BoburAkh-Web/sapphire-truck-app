@@ -1,0 +1,40 @@
+{
+  "title": "Our Services",
+  "items": [
+    {
+      "id": "ftl",
+      "label": "FTL",
+      "icon": "truck",
+      "heading": "FTL (Full Truck Load) Services",
+      "text": "Maximize efficiency with our FTL (Full Truck Load) services tailored for substantial cargo and exclusive truck use. Experience seamless, dedicated transport as your shipment occupies the entire truck, ensuring direct, non-stop transit. Benefit from speed, security, and personalized service. Trust us for precision and commitment in meeting your transportation needs."
+    },
+    {
+      "id": "ltl",
+      "label": "LTL",
+      "icon": "package",
+      "heading": "LTL (Less Than a Truckload) Services",
+      "text": "Get a customized quote today and discover the benefits of less-than-truckload freight services and maximize growth and profits for any supply chain network."
+    },
+    {
+      "id": "expedited",
+      "label": "EXPEDITED",
+      "icon": "zap",
+      "heading": "Our Expedited Logistics Solutions",
+      "text": "Dealing with time-sensitive shipments? Recognize the profound impact even the slightest delays can have. Explore the advantages of our expedited freight and logistics services today!"
+    },
+    {
+      "id": "cross-dock",
+      "label": "CROSS DOCK",
+      "icon": "warehouse",
+      "heading": "Cross-Docking Mastery for Swift Logistics",
+      "text": "Embark on a seamless cross-border journey with our logistics expertise. Navigate international shipments effortlessly, ensuring a swift transition. Trust our precision and unwavering commitment for a seamless global connection. Explore the advantages of our cross-border logistics solutions and redefine global connectivity."
+    },
+    {
+      "id": "cross-border",
+      "label": "CROSS BORDERING",
+      "icon": "globe",
+      "heading": "North-American Cross-Border Supply Chain Solutions",
+      "text": "Explore innovative supply chain solutions with Sapphire Transportation's cross-border logistics in North America. We ensure swift and reliable freight services across the U.S. and Canada, providing seamless efficiency and unmatched reliability."
+    }
+  ]
+}
