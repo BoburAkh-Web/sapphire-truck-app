@@ -1,6 +1,7 @@
 import { Truck } from "lucide-react";
 import { trucksData } from "./data";
 import Container from "./components/ui/Container";
+import Button from "./components/ui/Button";
 
 function App() {
   return (
@@ -12,6 +13,8 @@ function App() {
           <p className="text-fg-muted">Per mile</p>
           <Truck className="size-10 text-brand-red" />
         </div>
+        <Button href="#contact">Request a quote</Button>
+        <Button variant="accent">Calculate the cost</Button>
       </Container>
     </>
   );
