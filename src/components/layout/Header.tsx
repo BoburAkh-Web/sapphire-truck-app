@@ -1,13 +1,15 @@
 import Container from "../ui/Container";
 import logo from "../../assets/logo/logo.png";
 import { navigationData, siteData } from "../../data";
-import { Phone } from "lucide-react";
+import { Menu, Phone, X } from "lucide-react";
 import Button from "../ui/Button";
 import useScrolled from "../../hooks/useControlled";
+import { useState } from "react";
 
 function Header() {
   const mainPhone = siteData.phones[0];
   const isScrolled = useScrolled(20);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   return (
     <header
       className={`sticky top-0 z-50 border-b transition-colors duration-300 ${
@@ -48,10 +50,50 @@ function Header() {
               <span className="text-sm font-semibold">{mainPhone.label}</span>
             </span>
           </a>
-
           <Button href="#contact">Request a quote</Button>
         </div>
+        <button
+          type="button"
+          onClick={() => setIsMenuOpen((open) => !open)}
+          aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+          aria-expanded={isMenuOpen}
+          aria-controls="mobile-menu"
+          className="flex size-10 items-center justify-center rounded-lg text-fg lg:hidden"
+        >
+          {isMenuOpen ? <X className="size-6" /> : <Menu className="size-6" />}
+        </button>
       </Container>
+      {isMenuOpen && (
+        <div
+          id="mobile-menu"
+          onClick={() => setIsMenuOpen(false)}
+          className="border-t border-line bg-page lg:hidden"
+        >
+          <Container className="flex flex-col gap-1 py-4">
+            {navigationData.map((link) => (
+              <a
+                key={link.href}
+                href={link.href}
+                className="rounded-lg px-3 py-3 font-medium hover:bg-surface"
+              >
+                {link.label}
+              </a>
+            ))}
+
+            <a
+              href={mainPhone.href}
+              className="mt-2 flex items-center gap-3 rounded-lg px-3 py-3 text-fg-muted"
+            >
+              <Phone className="size-4 text-accent" />
+              {mainPhone.label}
+            </a>
+
+            <Button href="#contact" className="mt-2">
+              Request a quote
+            </Button>
+          </Container>
+        </div>
+      )}
     </header>
   );
 }
