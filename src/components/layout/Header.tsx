@@ -3,7 +3,7 @@ import logo from "../../assets/logo/logo.png";
 import { navigationData, siteData } from "../../data";
 import { Menu, Phone, X } from "lucide-react";
 import Button from "../ui/Button";
-import useScrolled from "../../hooks/useControlled";
+import useScrolled from "../../hooks/useScrolled";
 import { useState } from "react";
 
 function Header() {
