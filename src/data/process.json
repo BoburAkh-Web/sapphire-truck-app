@@ -1,4 +1,5 @@
 {
+  "badge": "THE PROCESS",
   "title": "How it Works with Us",
   "description": "Coordinating logistics with precision is crucial, especially when time is a critical factor. At Sapphire, we simplify the process, ensuring a smooth journey for your shipments from the initial inquiry to the final destination.",
   "button": {
@@ -13,12 +14,12 @@
     },
     {
       "id": 2,
-      "icon": "mail",
+      "icon": "send",
       "text": "Share Your Shipment Details"
     },
     {
       "id": 3,
-      "icon": "file-check",
+      "icon": "key-round",
       "text": "Tailored Solutions Proposal"
     },
     {

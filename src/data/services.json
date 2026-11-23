@@ -1,17 +1,18 @@
 {
+  "badge": "WHAT WE DO",
   "title": "Our Services",
   "items": [
     {
       "id": "ftl",
       "label": "FTL",
-      "icon": "truck",
+      "icon": "boxes",
       "heading": "FTL (Full Truck Load) Services",
       "text": "Maximize efficiency with our FTL (Full Truck Load) services tailored for substantial cargo and exclusive truck use. Experience seamless, dedicated transport as your shipment occupies the entire truck, ensuring direct, non-stop transit. Benefit from speed, security, and personalized service. Trust us for precision and commitment in meeting your transportation needs."
     },
     {
       "id": "ltl",
       "label": "LTL",
-      "icon": "package",
+      "icon": "forklift",
       "heading": "LTL (Less Than a Truckload) Services",
       "text": "Get a customized quote today and discover the benefits of less-than-truckload freight services and maximize growth and profits for any supply chain network."
     },
@@ -32,7 +33,7 @@
     {
       "id": "cross-border",
       "label": "CROSS BORDERING",
-      "icon": "globe",
+      "icon": "plane",
       "heading": "North-American Cross-Border Supply Chain Solutions",
       "text": "Explore innovative supply chain solutions with Sapphire Transportation's cross-border logistics in North America. We ensure swift and reliable freight services across the U.S. and Canada, providing seamless efficiency and unmatched reliability."
     }

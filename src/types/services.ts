@@ -7,6 +7,7 @@ export type ServiceItem = {
 };
 
 export type ServiceData = {
+  badge: string;
   title: string;
   items: ServiceItem[];
 };

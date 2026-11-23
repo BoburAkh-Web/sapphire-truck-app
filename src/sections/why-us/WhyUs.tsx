@@ -16,9 +16,9 @@ function WhyUs() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.2 }}
-          className="mx-auto grid max-w-280 gap-10 lg:grid-cols-[3fr_4fr]"
+          className="mx-auto grid max-w-280 gap-10 lg:grid-cols-[3fr_4fr] lg:items-center"
         >
-          <div className="lg:sticky lg:top-1/2 lg:-translate-y-1/2 lg:self-center">
+          <div>
             <motion.span
               variants={itemVariants}
               className="inline-flex items-center gap-2 rounded-full border border-white/40 px-4 py-1 text-[11px] leading-3.5 font-bold tracking-[0.2em] text-white uppercase"

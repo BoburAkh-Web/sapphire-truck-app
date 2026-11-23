@@ -9,6 +9,7 @@ export type ProcessBtn = {
 };
 
 export type ProcessData = {
+  badge: string;
   title: string;
   description: string;
   steps: Step[];
