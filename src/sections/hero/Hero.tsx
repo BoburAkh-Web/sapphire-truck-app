@@ -3,39 +3,85 @@ import Button from "../../components/ui/Button";
 import Container from "../../components/ui/Container";
 import { heroData, siteData } from "../../data";
 import { getHeroImage } from "../../data/images";
+import { useEffect, useState } from "react";
+import { motion, type Variants } from "motion/react";
+const SLIDE_DURATION = 6000;
+
+const containerVariants: Variants = {
+  hidden: {},
+  visible: {
+    transition: { staggerChildren: 0.15, delayChildren: 0.2 },
+  },
+};
+
+const itemVariants: Variants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.7, ease: "easeOut" },
+  },
+};
 
 function Hero() {
-  const slide = heroData.slides[0];
   const mainPhone = siteData.phones[0];
+  const [activeIndex, setActiveIndex] = useState(0);
+  const slideCount = heroData.slides.length;
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setActiveIndex((current) => (current + 1) % slideCount);
+    }, SLIDE_DURATION);
+    return () => clearTimeout(timer);
+  }, [activeIndex, slideCount]);
 
   return (
     <section className="relative isolate -mt-17 flex min-h-[calc(100svh-2rem)] items-center overflow-hidden pt-17 pb-20">
-      <img
-        src={getHeroImage(slide.image)}
-        alt={slide.alt}
-        className="absolute inset-0 -z-10 size-full object-cover"
-      />
+      {heroData.slides.map((slide, index) => (
+        <img
+          key={slide.id}
+          src={getHeroImage(slide.image)}
+          alt={slide.alt}
+          aria-hidden={index !== activeIndex}
+          className={`absolute inset-0 -z-10 size-full object-cover transition-opacity duration-1000 ${
+            index === activeIndex ? "opacity-100" : "opacity-0"
+          }`}
+        />
+      ))}
       <div className="absolute inset-0 -z-10 bg-linear-to-r from-[#14162e]/90 via-[#14162e]/60 to-transparent" />
       <Container>
-        <div>
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          animate="visible"
+        >
           <p className="inline-flex items-center gap-2.5 rounded-full border border-white/20 bg-black/20 px-4 py-1.5 text-xs font-bold tracking-[0.2em] text-white uppercase">
             <span className="size-1.5 rounded-full bg-brand-red" />
             {heroData.badge}
           </p>
 
-          <h1 className="mt-8 max-w-3xl text-4xl leading-[0.97] font-extrabold tracking-tight text-white uppercase italic sm:text-5xl lg:text-6xl xl:text-7xl">
+          <motion.h1
+            variants={itemVariants}
+            className="mt-8 max-w-3xl text-4xl leading-[0.97] font-extrabold tracking-tight text-white uppercase italic sm:text-5xl lg:text-6xl xl:text-7xl"
+          >
             {heroData.title.start}{" "}
             <span className="bg-linear-to-r from-[#ff4f58] to-brand-red bg-clip-text text-transparent">
               {heroData.title.highlight}
             </span>{" "}
             {heroData.title.end}
-          </h1>
+          </motion.h1>
 
-          <p className="mt-8 max-w-152 text-base leading-7 text-white/80 sm:text-[19px]">
+          <motion.p
+            variants={itemVariants}
+            className="mt-8 max-w-152 text-base leading-7 text-white/80 sm:text-[19px]"
+          >
             {heroData.description}
-          </p>
+          </motion.p>
 
-          <div className="mt-11 flex flex-wrap items-center gap-4">
+          <motion.div
+            variants={itemVariants}
+            className="mt-11 flex flex-wrap items-center gap-4"
+          >
             <Button href="#contact" variant="accent" size="lg">
               <Calculator className="size-5" />
               Calculate the cost
@@ -45,19 +91,22 @@ function Hero() {
               <Phone className="size-5" />
               {mainPhone.label}
             </Button>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
       </Container>
 
-      <div
-        aria-hidden="true"
-        className="absolute bottom-7 left-1/2 flex -translate-x-1/2 items-center gap-2.5"
-      >
+      <div className="absolute bottom-7 left-1/2 flex -translate-x-1/2 items-center gap-2.5">
         {heroData.slides.map((item, index) => (
-          <span
+          <button
             key={item.id}
-            className={`h-1.5 rounded-full ${
-              index === 0 ? "w-14 bg-brand-red" : "w-8 bg-white/60"
+            type="button"
+            onClick={() => setActiveIndex(index)}
+            aria-label={`Show slide ${index + 1}`}
+            aria-current={index === activeIndex}
+            className={`h-1.5 cursor-pointer rounded-full transition-all duration-500 ${
+              index === activeIndex
+                ? "w-14 bg-brand-red"
+                : "w-8 bg-white/60 hover:bg-white/80"
             }`}
           />
         ))}
