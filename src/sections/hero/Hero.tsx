@@ -21,26 +21,27 @@ function Hero() {
   }, [activeIndex, slideCount]);
 
   return (
-    <section className="relative isolate -mt-17 flex min-h-[calc(100svh-2rem)] items-center overflow-hidden pt-17 pb-20">
+    <section className="relative isolate -mt-17 flex min-h-svh items-center overflow-hidden pt-17 pb-24 md:min-h-[calc(100svh-2rem)] md:pb-20">
       {heroData.slides.map((slide, index) => (
         <img
           key={slide.id}
           src={getHeroImage(slide.image)}
           alt={slide.alt}
           aria-hidden={index !== activeIndex}
+          style={{ objectPosition: slide.position }}
           className={`absolute inset-0 -z-10 size-full object-cover transition-opacity duration-1000 ${
             index === activeIndex ? "opacity-100" : "opacity-0"
           }`}
         />
       ))}
-      <div className="absolute inset-0 -z-10 bg-linear-to-r from-[#14162e]/90 via-[#14162e]/60 to-transparent" />
+      <div className="absolute inset-0 -z-10 bg-linear-to-r from-[#14162e]/90 via-[#14162e]/70 to-[#14162e]/50 lg:via-[#14162e]/60 lg:to-transparent" />
       <Container>
         <motion.div
           variants={containerVariants}
           initial="hidden"
           animate="visible"
         >
-          <p className="inline-flex items-center gap-2.5 rounded-full border border-white/20 bg-black/20 px-4 py-1.5 text-xs font-bold tracking-[0.2em] text-white uppercase">
+          <p className="inline-flex items-center gap-2.5 rounded-full border border-white/20 bg-black/20 px-4 py-1.5 text-[11px] font-bold tracking-[0.12em] text-white uppercase sm:text-xs sm:tracking-[0.2em]">
             <span className="size-1.5 rounded-full bg-brand-red" />
             {heroData.badge}
           </p>
@@ -65,14 +66,24 @@ function Hero() {
 
           <motion.div
             variants={itemVariants}
-            className="mt-11 flex flex-wrap items-center gap-4"
+            className="mt-10 flex flex-col gap-4 sm:mt-11 sm:flex-row sm:items-center"
           >
-            <Button href="#contact" variant="accent" size="lg">
+            <Button
+              href="#contact"
+              variant="accent"
+              size="lg"
+              className="w-full sm:w-auto"
+            >
               <Calculator className="size-5" />
               Calculate the cost
               <ArrowRight className="size-4" />
             </Button>
-            <Button href={mainPhone.href} variant="outline" size="lg">
+            <Button
+              href={mainPhone.href}
+              variant="outline"
+              size="lg"
+              className="w-full sm:w-auto"
+            >
               <Phone className="size-5" />
               {mainPhone.label}
             </Button>

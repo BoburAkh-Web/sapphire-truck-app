@@ -14,7 +14,7 @@ function Header() {
   const { theme, toggleTheme } = useTheme();
   return (
     <header
-      className={`sticky top-0 z-50 border-b border-white/10 text-white transition-colors duration-300 ${
+      className={`sticky top-0 z-50 text-white shadow-[inset_0_-1px_0_rgb(255_255_255/0.1)] transition-colors duration-300 ${
         isScrolled ? "bg-[#0b0c17]/85 backdrop-blur-lg" : "bg-transparent"
       }`}
     >
@@ -73,22 +73,37 @@ function Header() {
             aria-label={isMenuOpen ? "Close menu" : "Open menu"}
             aria-expanded={isMenuOpen}
             aria-controls="mobile-menu"
-            className="flex size-10 items-center justify-center rounded-lg lg:hidden"
+            className="relative flex size-10 items-center justify-center rounded-lg lg:hidden"
           >
-            {isMenuOpen ? (
-              <X className="size-6" />
-            ) : (
-              <Menu className="size-6" />
-            )}
+            <Menu
+              className={`absolute size-6 transition-all duration-300 motion-reduce:transition-none ${
+                isMenuOpen
+                  ? "rotate-90 scale-50 opacity-0"
+                  : "rotate-0 scale-100 opacity-100"
+              }`}
+            />
+            <X
+              className={`absolute size-6 transition-all duration-300 motion-reduce:transition-none ${
+                isMenuOpen
+                  ? "rotate-0 scale-100 opacity-100"
+                  : "-rotate-90 scale-50 opacity-0"
+              }`}
+            />
           </button>
         </div>
       </Container>
-      {isMenuOpen && (
-        <div
-          id="mobile-menu"
-          onClick={() => setIsMenuOpen(false)}
-          className="border-t border-white/10 bg-[#0b0c17] lg:hidden"
-        >
+      <div
+        id="mobile-menu"
+        aria-hidden={!isMenuOpen}
+        inert={!isMenuOpen}
+        onClick={() => setIsMenuOpen(false)}
+        className={`grid bg-[#0b0c17] transition-[grid-template-rows,opacity] duration-500 ease-in-out motion-reduce:transition-none lg:hidden ${
+          isMenuOpen
+            ? "grid-rows-[1fr] opacity-100"
+            : "grid-rows-[0fr] opacity-0"
+        }`}
+      >
+        <div className="overflow-hidden border-t border-white/10">
           <Container className="flex flex-col gap-1 py-4">
             {navigationData.map((link) => (
               <a
@@ -113,7 +128,7 @@ function Header() {
             </Button>
           </Container>
         </div>
-      )}
+      </div>
     </header>
   );
 }

@@ -10,11 +10,13 @@
     {
       "id": 1,
       "image": "hero-night-highway.webp",
+      "position": "42% 50%",
       "alt": "Orange semi truck driving on a highway at night"
     },
     {
       "id": 2,
       "image": "hero-sunset-highway.webp",
+      "position": "12% 50%",
       "alt": "Semi truck on a highway at sunset"
     }
   ]

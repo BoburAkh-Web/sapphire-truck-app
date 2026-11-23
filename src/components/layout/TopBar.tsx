@@ -8,7 +8,7 @@ function TopBar() {
       id="home"
       className="hidden bg-linear-to-r from-brand-blue via-[#8f2f78] to-brand-red text-white md:block"
     >
-      <Container className="flex h-8 items-center justify-between text-xs">
+      <Container className="flex h-10 items-center justify-between text-xs">
         <p className="flex items-center gap-2">
           <AlarmClock className="size-4" />
           <span className="font-bold">Working hours:</span>

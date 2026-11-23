@@ -1,6 +1,7 @@
 export type HeroSlide = {
   id: number;
   image: string;
+  position: string;
   alt: string;
 };
 export type HeroTitle = {
