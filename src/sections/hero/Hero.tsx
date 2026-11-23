@@ -4,24 +4,9 @@ import Container from "../../components/ui/Container";
 import { heroData, siteData } from "../../data";
 import { getHeroImage } from "../../data/images";
 import { useEffect, useState } from "react";
-import { motion, type Variants } from "motion/react";
+import { motion } from "motion/react";
+import { containerVariants, itemVariants } from "../../utils/animations";
 const SLIDE_DURATION = 6000;
-
-const containerVariants: Variants = {
-  hidden: {},
-  visible: {
-    transition: { staggerChildren: 0.15, delayChildren: 0.2 },
-  },
-};
-
-const itemVariants: Variants = {
-  hidden: { opacity: 0, y: 30 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.7, ease: "easeOut" },
-  },
-};
 
 function Hero() {
   const mainPhone = siteData.phones[0];
@@ -62,7 +47,7 @@ function Hero() {
 
           <motion.h1
             variants={itemVariants}
-            className="mt-8 max-w-3xl text-4xl leading-[0.97] font-extrabold tracking-tight text-white uppercase italic sm:text-5xl lg:text-6xl xl:text-7xl"
+            className="mt-8 max-w-3xl text-4xl leading-[0.97] font-black tracking-tight text-white uppercase italic sm:text-5xl lg:text-6xl xl:text-7xl"
           >
             {heroData.title.start}{" "}
             <span className="bg-linear-to-r from-[#ff4f58] to-brand-red bg-clip-text text-transparent">
