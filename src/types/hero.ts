@@ -11,6 +11,7 @@ export type HeroTitle = {
 
 export type HeroData = {
   slides: HeroSlide[];
+  badge: string;
   description: string;
   title: HeroTitle;
 };

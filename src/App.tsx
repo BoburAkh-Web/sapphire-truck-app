@@ -1,12 +1,15 @@
 import Header from "./components/layout/Header";
-import Container from "./components/ui/Container";
+import TopBar from "./components/layout/TopBar";
+import Hero from "./sections/hero/Hero";
 
 function App() {
   return (
     <>
-      <Container>
-        <Header />
-      </Container>
+      <TopBar />
+      <Header />
+      <main>
+        <Hero />
+      </main>
     </>
   );
 }
