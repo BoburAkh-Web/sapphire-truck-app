@@ -1,5 +1,13 @@
-import { ArrowRight, Check } from "lucide-react";
-import { motion, type Variants } from "motion/react";
+import { useRef } from "react";
+import { ArrowRight, Check, Truck } from "lucide-react";
+import {
+  motion,
+  useReducedMotion,
+  useScroll,
+  useSpring,
+  useTransform,
+  type Variants,
+} from "motion/react";
 import { processData } from "../../data";
 import Button from "../../components/ui/Button";
 import Container from "../../components/ui/Container";
@@ -15,6 +23,21 @@ const lineVariants: Variants = {
 };
 
 function Process() {
+  const stepsRef = useRef<HTMLOListElement>(null);
+  const prefersReducedMotion = useReducedMotion();
+
+  // Ro'yxat ekranga kirganda 0, pastki qismi ekran o'rtasiga yetganda 1
+  const { scrollYProgress } = useScroll({
+    target: stepsRef,
+    offset: ["start 0.75", "end 0.5"],
+  });
+  const progress = useSpring(scrollYProgress, {
+    stiffness: 90,
+    damping: 25,
+    restDelta: 0.001,
+  });
+  const truckTop = useTransform(progress, [0, 1], ["0%", "100%"]);
+
   return (
     <section
       id="process"
@@ -59,7 +82,26 @@ function Process() {
             </motion.div>
           </div>
 
-          <ol className="relative space-y-5">
+          <ol ref={stepsRef} className="relative space-y-5">
+            {!prefersReducedMotion && (
+              <div
+                aria-hidden="true"
+                className="pointer-events-none absolute inset-y-6 -left-9 hidden w-6 lg:block"
+              >
+                <div className="absolute inset-y-0 left-1/2 w-px -translate-x-1/2 bg-[repeating-linear-gradient(to_bottom,rgb(62_64_149/0.35)_0_6px,transparent_6px_12px)]" />
+                <motion.div
+                  style={{ scaleY: progress }}
+                  className="absolute inset-y-0 left-1/2 w-0.5 origin-top -translate-x-1/2 rounded-full bg-brand-red"
+                />
+                <motion.div
+                  style={{ top: truckTop }}
+                  className="absolute left-1/2 flex size-9 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-brand-red text-white shadow-lg shadow-brand-red/40"
+                >
+                  <Truck className="size-4 rotate-90" />
+                </motion.div>
+              </div>
+            )}
+
             <motion.span
               aria-hidden="true"
               variants={lineVariants}

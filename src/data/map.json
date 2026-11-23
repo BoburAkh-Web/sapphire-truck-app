@@ -1,0 +1,82 @@
+{
+  "viewBox": {
+    "width": 424,
+    "height": 357
+  },
+  "dotSpacing": 8,
+  "dots": "M42 14H50M38 21H62M34 28H74M314 28H314M30 35H86M310 35H326M34 42H106M274 42H298M314 42H330M46 49H134M270 49H350M366 49H366M26 56H26M42 56H194M266 56H346M362 56H370M38 63H190M278 63H374M50 70H202M282 70H362M378 70H378M46 77H198M214 77H214M262 77H262M278 77H366M382 77H398M42 84H226M274 84H362M386 84H394M410 84H410M46 91H246M270 91H350M390 91H390M34 98H34M50 98H250M274 98H338M38 105H38M54 105H254M278 105H334M350 105H350M42 112H346M386 112H386M38 119H38M54 119H382M42 126H322M338 126H378M38 133H374M34 140H314M330 140H354M370 140H370M30 147H342M26 154H338M22 161H334M18 168H338M14 175H342M18 182H338M14 189H326M18 196H330M14 203H318M18 210H314M14 217H318M18 224H322M22 231H326M18 238H322M30 245H318M34 252H314M38 259H310M58 266H306M62 273H302M74 280H298M118 287H302M122 294H298M126 301H238M254 301H254M278 301H278M294 301H310M130 308H130M154 308H234M298 308H314M158 315H198M302 315H318M162 322H186M306 322H322M166 329H174M310 329H318M170 336H170M322 336H322M174 343H174",
+  "hub": {
+    "id": "buffalo-grove",
+    "name": "Buffalo Grove, IL",
+    "x": 240.3,
+    "y": 197.3,
+    "anchor": "middle",
+    "dx": 0,
+    "dy": 0
+  },
+  "cities": [
+    {
+      "id": "vancouver",
+      "name": "Vancouver",
+      "x": 49.4,
+      "y": 110.7,
+      "anchor": "start",
+      "dx": -6,
+      "dy": 19
+    },
+    {
+      "id": "calgary",
+      "name": "Calgary",
+      "x": 98.8,
+      "y": 113.7,
+      "anchor": "middle",
+      "dx": 0,
+      "dy": -9
+    },
+    {
+      "id": "los-angeles",
+      "name": "Los Angeles",
+      "x": 29.1,
+      "y": 242.4,
+      "anchor": "start",
+      "dx": 9,
+      "dy": 4
+    },
+    {
+      "id": "houston",
+      "name": "Houston",
+      "x": 195,
+      "y": 309.6,
+      "anchor": "middle",
+      "dx": 0,
+      "dy": 18
+    },
+    {
+      "id": "miami",
+      "name": "Miami",
+      "x": 324.3,
+      "y": 330.3,
+      "anchor": "end",
+      "dx": -9,
+      "dy": 4
+    },
+    {
+      "id": "new-york",
+      "name": "New York",
+      "x": 329.5,
+      "y": 188.4,
+      "anchor": "start",
+      "dx": 9,
+      "dy": 4
+    },
+    {
+      "id": "toronto",
+      "name": "Toronto",
+      "x": 289.9,
+      "y": 174.7,
+      "anchor": "middle",
+      "dx": 0,
+      "dy": -9
+    }
+  ]
+}

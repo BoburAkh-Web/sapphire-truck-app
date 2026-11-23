@@ -3,6 +3,7 @@ import { whyUsData } from "../../data";
 import Container from "../../components/ui/Container";
 import Icon from "../../components/ui/Icon";
 import { containerVariants, itemVariants } from "../../utils/animations";
+import RouteMap from "./RouteMap";
 
 function WhyUs() {
   return (
@@ -38,6 +39,8 @@ function WhyUs() {
               variants={itemVariants}
               className="mt-8 block h-1 w-22 rounded-full bg-white/50"
             />
+
+            <RouteMap />
           </div>
 
           <ul className="grid gap-6 sm:grid-cols-2">
