@@ -1,4 +1,4 @@
-import { createContext, type ReactNode } from "react";
+import { createContext, useContext, useEffect, type ReactNode } from "react";
 import useLocalStorageState from "../hooks/useLocalStorageState";
 
 type Theme = "dark" | "light";
@@ -18,7 +18,21 @@ function ThemeProvider({ children }: ThemeProviderProps) {
   function toggleTheme() {
     setTheme((current) => (current === "dark" ? "light" : "dark"));
   }
+  useEffect(() => {
+    document.documentElement.classList.toggle("dark", theme === "dark");
+  }, [theme]);
+
   return <ThemeContext value={{ theme, toggleTheme }}>{children}</ThemeContext>;
 }
 
-export default ThemeProvider;
+function useTheme() {
+  const context = useContext(ThemeContext);
+
+  if (context === null) {
+    throw new Error("useTheme must be used inside ThemeProvider");
+  }
+
+  return context;
+}
+
+export { ThemeProvider, useTheme };
