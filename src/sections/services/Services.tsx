@@ -2,6 +2,7 @@ import { motion } from "motion/react";
 import { servicesData } from "../../data";
 import Container from "../../components/ui/Container";
 import Icon from "../../components/ui/Icon";
+import SplitTitle from "../../components/ui/SplitTitle";
 import Tabs from "../../components/ui/Tabs";
 import { containerVariants, itemVariants } from "../../utils/animations";
 
@@ -36,9 +37,10 @@ function Services() {
               <span className="size-1.5 rounded-full bg-brand-red" />
               {servicesData.badge}
             </span>
-            <h2 className="mt-6 text-4xl font-extrabold tracking-tight text-white sm:text-5xl">
-              {servicesData.title}
-            </h2>
+            <SplitTitle
+              text={servicesData.title}
+              className="mt-6 text-4xl font-extrabold tracking-tight text-white sm:text-5xl"
+            />
           </motion.div>
 
           <Tabs defaultValue={servicesData.items[0].id} className="mt-12">

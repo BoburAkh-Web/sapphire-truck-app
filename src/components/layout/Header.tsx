@@ -32,7 +32,7 @@ function Header() {
               <li key={link.href}>
                 <a
                   href={link.href}
-                  className="text-sm font-semibold text-white transition-colors hover:text-white/70"
+                  className="relative text-sm font-semibold text-white after:absolute after:-bottom-1 after:left-0 after:h-0.5 after:w-full after:origin-left after:scale-x-0 after:rounded-full after:bg-brand-red after:transition-transform after:duration-300 hover:after:scale-x-100"
                 >
                   {link.label}
                 </a>

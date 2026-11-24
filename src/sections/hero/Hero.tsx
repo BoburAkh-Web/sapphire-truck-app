@@ -22,20 +22,22 @@ function Hero() {
 
   return (
     <section className="relative isolate -mt-17 flex min-h-svh items-center overflow-hidden pt-17 pb-24 md:min-h-[calc(100svh-2rem)] md:pb-20">
-      {heroData.slides.map((slide, index) => (
-        <img
-          key={slide.id}
-          src={getHeroImage(slide.image)}
-          alt={slide.alt}
-          aria-hidden={index !== activeIndex}
-          style={{ objectPosition: slide.position }}
-          className={`absolute inset-0 -z-10 size-full object-cover transition-opacity duration-1000 ${
-            index === activeIndex ? "opacity-100" : "opacity-0"
-          }`}
-        />
-      ))}
+      <div className="hero-parallax-image absolute inset-x-0 inset-y-[-10%] -z-10">
+        {heroData.slides.map((slide, index) => (
+          <img
+            key={slide.id}
+            src={getHeroImage(slide.image)}
+            alt={slide.alt}
+            aria-hidden={index !== activeIndex}
+            style={{ objectPosition: slide.position }}
+            className={`absolute inset-0 size-full object-cover transition-opacity duration-1000 ${
+              index === activeIndex ? "opacity-100" : "opacity-0"
+            }`}
+          />
+        ))}
+      </div>
       <div className="absolute inset-0 -z-10 bg-linear-to-r from-[#14162e]/90 via-[#14162e]/70 to-[#14162e]/50 lg:via-[#14162e]/60 lg:to-transparent" />
-      <Container>
+      <Container className="hero-parallax-content">
         <motion.div
           variants={containerVariants}
           initial="hidden"
@@ -76,7 +78,7 @@ function Hero() {
             >
               <Calculator className="size-5" />
               Calculate the cost
-              <ArrowRight className="size-4" />
+              <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
             </Button>
             <Button
               href={mainPhone.href}

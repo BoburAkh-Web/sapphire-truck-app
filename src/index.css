@@ -47,4 +47,41 @@
   body {
     @apply bg-page text-fg font-sans antialiased;
   }
+
+  ::selection {
+    background-color: color-mix(in srgb, var(--color-brand-red) 35%, transparent);
+  }
+}
+
+/* Hero parallax: JavaScript'siz, scroll bilan boshqariladigan CSS animatsiya.
+   Qo'llab-quvvatlanmagan brauzerlarda va "reduced motion" da o'chiq turadi. */
+@layer components {
+  @supports (animation-timeline: scroll()) {
+    @media (prefers-reduced-motion: no-preference) {
+      .hero-parallax-image {
+        animation: hero-parallax-image linear both;
+        animation-timeline: scroll();
+        animation-range: 0 100svh;
+      }
+
+      .hero-parallax-content {
+        animation: hero-parallax-content linear both;
+        animation-timeline: scroll();
+        animation-range: 0 70svh;
+      }
+    }
+  }
+}
+
+@keyframes hero-parallax-image {
+  to {
+    transform: translateY(8%);
+  }
+}
+
+@keyframes hero-parallax-content {
+  to {
+    opacity: 0;
+    transform: translateY(-12%);
+  }
 }

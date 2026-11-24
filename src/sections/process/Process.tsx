@@ -12,6 +12,7 @@ import { processData } from "../../data";
 import Button from "../../components/ui/Button";
 import Container from "../../components/ui/Container";
 import Icon from "../../components/ui/Icon";
+import SplitTitle from "../../components/ui/SplitTitle";
 import { containerVariants, itemVariants } from "../../utils/animations";
 
 const lineVariants: Variants = {
@@ -60,12 +61,10 @@ function Process() {
               {processData.badge}
             </motion.span>
 
-            <motion.h2
-              variants={itemVariants}
+            <SplitTitle
+              text={processData.title}
               className="mt-4 text-4xl leading-tight font-extrabold tracking-tight text-[#14162e] sm:text-[2.8rem]"
-            >
-              {processData.title}
-            </motion.h2>
+            />
 
             <motion.p
               variants={itemVariants}
@@ -77,16 +76,16 @@ function Process() {
             <motion.div variants={itemVariants} className="mt-8">
               <Button href={processData.button.href} size="lg">
                 {processData.button.label}
-                <ArrowRight className="size-4" />
+                <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
               </Button>
             </motion.div>
           </div>
 
-          <ol ref={stepsRef} className="relative space-y-5">
+          <ol ref={stepsRef} className="relative space-y-5 pl-10 lg:pl-0">
             {!prefersReducedMotion && (
               <div
                 aria-hidden="true"
-                className="pointer-events-none absolute inset-y-6 -left-9 hidden w-6 lg:block"
+                className="pointer-events-none absolute inset-y-6 left-0 w-6 lg:-left-9"
               >
                 <div className="absolute inset-y-0 left-1/2 w-px -translate-x-1/2 bg-[repeating-linear-gradient(to_bottom,rgb(62_64_149/0.35)_0_6px,transparent_6px_12px)]" />
                 <motion.div
@@ -95,7 +94,7 @@ function Process() {
                 />
                 <motion.div
                   style={{ top: truckTop }}
-                  className="absolute left-1/2 flex size-9 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-brand-red text-white shadow-lg shadow-brand-red/40"
+                  className="absolute left-1/2 flex size-8 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-brand-red text-white shadow-lg shadow-brand-red/40"
                 >
                   <Truck className="size-4 rotate-90" />
                 </motion.div>
@@ -105,7 +104,7 @@ function Process() {
             <motion.span
               aria-hidden="true"
               variants={lineVariants}
-              className="absolute inset-y-8 left-7 w-px origin-top bg-brand-blue/25"
+              className="absolute inset-y-8 left-17 w-px origin-top lg:left-7 bg-brand-blue/25"
             />
 
             {processData.steps.map((step) => (

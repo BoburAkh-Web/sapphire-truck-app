@@ -2,6 +2,7 @@ import { motion } from "motion/react";
 import { whyUsData } from "../../data";
 import Container from "../../components/ui/Container";
 import Icon from "../../components/ui/Icon";
+import SplitTitle from "../../components/ui/SplitTitle";
 import { containerVariants, itemVariants } from "../../utils/animations";
 import RouteMap from "./RouteMap";
 
@@ -28,12 +29,10 @@ function WhyUs() {
               {whyUsData.badge}
             </motion.span>
 
-            <motion.h2
-              variants={itemVariants}
+            <SplitTitle
+              text={whyUsData.title}
               className="mt-6 text-4xl leading-tight font-extrabold tracking-tight text-white sm:text-[2.7rem]"
-            >
-              {whyUsData.title}
-            </motion.h2>
+            />
 
             <motion.span
               variants={itemVariants}
@@ -48,7 +47,7 @@ function WhyUs() {
               <motion.li
                 key={item.id}
                 variants={itemVariants}
-                className="rounded-3xl border border-white/20 bg-white/10 p-6.5 backdrop-blur-sm"
+                className="rounded-3xl border border-white/20 bg-white/10 p-6.5 backdrop-blur-sm transition duration-300 hover:-translate-y-1 hover:border-white/40 hover:bg-white/15"
               >
                 <span className="flex size-12 items-center justify-center rounded-xl bg-brand-red text-white">
                   <Icon name={item.icon} className="size-6" />
