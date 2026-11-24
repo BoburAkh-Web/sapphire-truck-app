@@ -6,6 +6,8 @@ import { getHeroImage } from "../../data/images";
 import { useEffect, useState } from "react";
 import { motion } from "motion/react";
 import { containerVariants, itemVariants } from "../../utils/animations";
+import RouteCard from "./RouteCard";
+// import TruckChips from "./TruckChips"; // variant 3: suzuvchi truck chiplari (vaqtincha yashirilgan)
 const SLIDE_DURATION = 6000;
 
 function Hero() {
@@ -37,7 +39,7 @@ function Hero() {
         ))}
       </div>
       <div className="absolute inset-0 -z-10 bg-linear-to-r from-[#14162e]/90 via-[#14162e]/70 to-[#14162e]/50 lg:via-[#14162e]/60 lg:to-transparent" />
-      <Container className="hero-parallax-content">
+      <Container className="hero-parallax-content hero-grid">
         <motion.div
           variants={containerVariants}
           initial="hidden"
@@ -91,6 +93,9 @@ function Hero() {
             </Button>
           </motion.div>
         </motion.div>
+
+        {/* <TruckChips /> */}
+        <RouteCard />
       </Container>
 
       <div className="absolute bottom-7 left-1/2 flex -translate-x-1/2 items-center gap-2.5">

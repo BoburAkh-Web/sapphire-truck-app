@@ -7,6 +7,14 @@
 
   --color-brand-blue: #3e4095;
   --color-brand-red: #ed3237;
+
+  --animate-float: float 6s ease-in-out infinite;
+
+  @keyframes float {
+    50% {
+      transform: translateY(-12px);
+    }
+  }
 }
 
 @theme inline {
@@ -69,6 +77,34 @@
         animation-timeline: scroll();
         animation-range: 0 70svh;
       }
+    }
+  }
+}
+
+/* Hero joylashuvi: xl (1280px) dan kichikda karta pastga tushadi, kengayadi va markazda turadi;
+   xl dan boshlab matn chapda, karta o'ngda */
+@layer components {
+  .hero-grid {
+    display: grid;
+    gap: 2.5rem;
+  }
+
+  .hero-aside {
+    width: 100%;
+    max-width: 40rem;
+    margin-inline: auto;
+  }
+
+  @media (min-width: 80rem) {
+    .hero-grid {
+      grid-template-columns: minmax(0, 1fr) 30rem;
+      align-items: center;
+      gap: 3rem;
+    }
+
+    .hero-aside {
+      max-width: none;
+      margin-inline: 0;
     }
   }
 }
