@@ -6,6 +6,7 @@ import WhyUs from "./sections/why-us/WhyUs";
 import Services from "./sections/services/Services";
 import Process from "./sections/process/Process";
 import { useQuoteStore } from "./store/quoteStore";
+import TruckTypes from "./sections/truck-types/TruckTypes";
 
 function App() {
   const miles = useQuoteStore((state) => state.miles);
@@ -19,13 +20,8 @@ function App() {
         <WhyUs />
         <Services />
         <Process />
+        <TruckTypes />
       </main>
-      <button
-        onClick={() => setMiles(miles + 50)}
-        className="m-8 bg-surface p-4"
-      >
-        {miles} miles
-      </button>
     </MotionConfig>
   );
 }
