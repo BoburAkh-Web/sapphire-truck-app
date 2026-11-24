@@ -5,13 +5,11 @@ import Hero from "./sections/hero/Hero";
 import WhyUs from "./sections/why-us/WhyUs";
 import Services from "./sections/services/Services";
 import Process from "./sections/process/Process";
-import { trucksData } from "./data";
-import { calculateQuote } from "./utils/pricing";
+import { useQuoteStore } from "./store/quoteStore";
 
 function App() {
-  // console.log(trucksData.trucks.map(formatRate));
-  console.log(calculateQuote(trucksData.trucks[1], 100)); // { kind: "price", min: 110, max: 140 }
-  console.log(calculateQuote(trucksData.trucks[3], 100)); // { kind: "onRequest" }
+  const miles = useQuoteStore((state) => state.miles);
+  const setMiles = useQuoteStore((state) => state.setMiles);
   return (
     <MotionConfig reducedMotion="user">
       <TopBar />
@@ -22,6 +20,12 @@ function App() {
         <Services />
         <Process />
       </main>
+      <button
+        onClick={() => setMiles(miles + 50)}
+        className="m-8 bg-surface p-4"
+      >
+        {miles} miles
+      </button>
     </MotionConfig>
   );
 }
