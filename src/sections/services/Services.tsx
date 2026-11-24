@@ -72,20 +72,21 @@ function Services() {
                   initial={{ opacity: 0, y: 16 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.45, ease: "easeOut" }}
-                  className="rounded-3xl border border-white/10 bg-black/20 px-6 py-12 text-center shadow-2xl shadow-black/20 backdrop-blur-sm sm:px-16"
                 >
-                  <Icon
-                    name={item.icon}
-                    className="mx-auto size-12 text-brand-red"
-                  />
+                  <div className="rounded-3xl border border-white/10 bg-black/20 px-6 py-12 text-center shadow-2xl shadow-black/20 backdrop-blur-sm motion-safe:animate-float sm:px-16">
+                    <Icon
+                      name={item.icon}
+                      className="mx-auto size-12 text-brand-red"
+                    />
 
-                  <h3 className="mt-6 text-2xl font-extrabold tracking-tight text-white sm:text-4xl">
-                    {item.heading}
-                  </h3>
+                    <h3 className="mt-6 text-2xl font-extrabold tracking-tight text-white sm:text-4xl">
+                      {item.heading}
+                    </h3>
 
-                  <p className="mx-auto mt-6 max-w-3xl leading-relaxed text-white/75 sm:text-lg">
-                    {item.text}
-                  </p>
+                    <p className="mx-auto mt-6 max-w-3xl leading-relaxed text-white/75 sm:text-lg">
+                      {item.text}
+                    </p>
+                  </div>
                 </motion.div>
               </Tabs.Panel>
             ))}

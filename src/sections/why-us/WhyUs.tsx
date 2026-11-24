@@ -43,23 +43,24 @@ function WhyUs() {
           </div>
 
           <ul className="grid gap-6 sm:grid-cols-2">
-            {whyUsData.items.map((item) => (
-              <motion.li
-                key={item.id}
-                variants={itemVariants}
-                className="rounded-3xl border border-white/20 bg-white/10 p-6.5 backdrop-blur-sm transition duration-300 hover:-translate-y-1 hover:border-white/40 hover:bg-white/15"
-              >
-                <span className="flex size-12 items-center justify-center rounded-xl bg-brand-red text-white">
-                  <Icon name={item.icon} className="size-6" />
-                </span>
+            {whyUsData.items.map((item, index) => (
+              <motion.li key={item.id} variants={itemVariants}>
+                <div
+                  style={{ animationDelay: `${index * -1.5}s` }}
+                  className="h-full rounded-3xl border border-white/20 bg-white/10 p-6.5 backdrop-blur-sm transition duration-300 hover:-translate-y-1 hover:border-white/40 hover:bg-white/15 motion-safe:animate-float"
+                >
+                  <span className="flex size-12 items-center justify-center rounded-xl bg-brand-red text-white">
+                    <Icon name={item.icon} className="size-6" />
+                  </span>
 
-                <h3 className="mt-6 text-lg leading-6 font-bold text-white capitalize">
-                  {item.title}
-                </h3>
+                  <h3 className="mt-6 text-lg leading-6 font-bold text-white capitalize">
+                    {item.title}
+                  </h3>
 
-                <p className="mt-2.5 text-sm leading-5 text-white/80">
-                  {item.text}
-                </p>
+                  <p className="mt-2.5 text-sm leading-5 text-white/80">
+                    {item.text}
+                  </p>
+                </div>
               </motion.li>
             ))}
           </ul>
