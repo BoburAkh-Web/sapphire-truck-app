@@ -8,8 +8,15 @@ export type Truck = {
 };
 
 export type TrucksData = {
+  badge: string;
   title: string;
   perMileLabel: string;
   quickPay: string;
+  selectedLabel: string;
+  milesLabel: string;
+  totalLabel: string;
+  priceOnRequest: string;
+  ctaLabel: string;
+  milesPresets: number[];
   trucks: Truck[];
 };

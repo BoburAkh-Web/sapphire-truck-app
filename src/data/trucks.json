@@ -1,7 +1,14 @@
 {
+  "badge": "INSTANT PRICING",
   "title": "Truck Types",
   "perMileLabel": "Per mile",
   "quickPay": "Quick pay included",
+  "selectedLabel": "SELECTED TRUCK",
+  "milesLabel": "Miles",
+  "totalLabel": "Total Payment",
+  "priceOnRequest": "Price on request",
+  "ctaLabel": "Request a quote",
+  "milesPresets": [100, 250, 500, 1000],
   "trucks": [
     {
       "id": 1,
