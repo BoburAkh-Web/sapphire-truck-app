@@ -7,6 +7,7 @@ import Services from "./sections/services/Services";
 import Process from "./sections/process/Process";
 import { useQuoteStore } from "./store/quoteStore";
 import TruckTypes from "./sections/truck-types/TruckTypes";
+import Contact from "./sections/contact/Contact";
 
 function App() {
   const miles = useQuoteStore((state) => state.miles);
@@ -21,6 +22,7 @@ function App() {
         <Services />
         <Process />
         <TruckTypes />
+        <Contact />
       </main>
     </MotionConfig>
   );

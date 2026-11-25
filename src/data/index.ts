@@ -1,3 +1,4 @@
+import contactJson from "./contact.json";
 import trucksJson from "./trucks.json";
 import heroJson from "./hero.json";
 import mapJson from "./map.json";
@@ -7,6 +8,7 @@ import servicesJson from "./services.json";
 import siteJson from "./site.json";
 import whyUsJson from "./why-us.json";
 
+import type { ContactData } from "../types/contact";
 import type { TrucksData } from "../types/trucks";
 import type { HeroData } from "../types/hero";
 import type { MapData } from "../types/map";
@@ -16,6 +18,7 @@ import type { ServiceData } from "../types/services";
 import type { SiteData } from "../types/site";
 import type { WhyUsData } from "../types/why-us";
 
+export const contactData = contactJson as ContactData;
 export const trucksData = trucksJson as TrucksData;
 export const heroData = heroJson as HeroData;
 export const mapData = mapJson as MapData;

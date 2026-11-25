@@ -1,0 +1,17 @@
+{
+  "badge": "GET IN TOUCH",
+  "title": "Contact US",
+  "phoneLabel": "Phone Numbers",
+  "emailLabel": "Email",
+  "locationLabel": "Location",
+  "form": {
+    "title": "Request to Contact",
+    "phonePlaceholder": "Phone Number *",
+    "emailPlaceholder": "Email *",
+    "messagePlaceholder": "How can we help?",
+    "submitLabel": "Get Help",
+    "sendingLabel": "Sending...",
+    "successMessage": "Thank you! We will contact you within an hour.",
+    "errorMessage": "Something went wrong. Please call us or try again."
+  }
+}
