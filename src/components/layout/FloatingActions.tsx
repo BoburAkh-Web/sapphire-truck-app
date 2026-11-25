@@ -10,7 +10,7 @@ function FloatingActions() {
   }
 
   return (
-    <div className="fixed right-5 bottom-5 z-40 flex flex-col items-end gap-3">
+    <div className="fixed right-5 bottom-20 z-40 flex flex-col items-end gap-3">
       <AnimatePresence>
         {showBackToTop && (
           <motion.button
