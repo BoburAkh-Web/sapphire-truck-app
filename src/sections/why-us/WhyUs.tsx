@@ -4,7 +4,7 @@ import Container from "../../components/ui/Container";
 import Icon from "../../components/ui/Icon";
 import SplitTitle from "../../components/ui/SplitTitle";
 import { containerVariants, itemVariants } from "../../utils/animations";
-import RouteMap from "./RouteMap";
+import RouteCard from "./RouteCard";
 
 function WhyUs() {
   return (
@@ -39,7 +39,7 @@ function WhyUs() {
               className="mt-8 block h-1 w-22 rounded-full bg-white/50"
             />
 
-            <RouteMap />
+            <RouteCard />
           </div>
 
           <ul className="grid gap-6 sm:grid-cols-2">

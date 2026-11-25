@@ -9,6 +9,7 @@
     "phonePlaceholder": "Phone Number *",
     "emailPlaceholder": "Email *",
     "messagePlaceholder": "How can we help?",
+    "includeQuoteLabel": "Include my calculator estimate:",
     "submitLabel": "Get Help",
     "sendingLabel": "Sending...",
     "successMessage": "Thank you! We will contact you within an hour.",

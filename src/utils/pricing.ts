@@ -27,3 +27,14 @@ export function formatRate(truck: Truck): string {
 
   return `${formatCurrency(truck.from)} - ${formatCurrency(truck.to)}`;
 }
+
+export function formatQuoteSummary(truck: Truck, miles: number): string {
+  const quote = calculateQuote(truck, miles);
+
+  const price =
+    quote.kind === "price"
+      ? `${formatCurrency(quote.min)} - ${formatCurrency(quote.max)}`
+      : "price on request";
+
+  return `${truck.name} · ${miles} mi · ${price}`;
+}

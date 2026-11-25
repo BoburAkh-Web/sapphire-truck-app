@@ -5,6 +5,9 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { contactSchema, type ContactFormValues } from "./contactSchema";
 import Button from "../../components/ui/Button";
 import { useState } from "react";
+import { sendContactEmail } from "../emailService";
+import { useQuoteStore, useSelectedTruck } from "../../store/quoteStore";
+import { formatQuoteSummary } from "../../utils/pricing";
 
 const fieldClasses =
   "w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-[#14162e] placeholder:text-slate-400 outline-none transition focus:border-brand-blue focus:ring-4 focus:ring-brand-blue/15 aria-invalid:border-brand-red aria-invalid:ring-4 aria-invalid:ring-brand-red/15";
@@ -14,20 +17,24 @@ type FormStatus = "idle" | "success" | "error";
 function ContactForm() {
   const { form } = contactData;
   const [status, setStatus] = useState<FormStatus>("idle");
+  const truck = useSelectedTruck();
+  const miles = useQuoteStore((state) => state.miles);
+  const quoteSummary = formatQuoteSummary(truck, miles);
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors, isSubmitting },
   } = useForm<ContactFormValues>({
     resolver: zodResolver(contactSchema),
-    defaultValues: { phone: "", email: "", message: "" },
+    defaultValues: { phone: "", email: "", message: "", includeQuote: false },
   });
 
   async function onSubmit(data: ContactFormValues) {
     setStatus("idle");
     try {
-      await new Promise((resolve) => setTimeout(resolve, 1500));
-      console.log(data);
+      await sendContactEmail(data, quoteSummary);
+      reset();
       setStatus("success");
     } catch {
       setStatus("error");
@@ -115,6 +122,17 @@ function ContactForm() {
           </p>
         )}
       </div>
+      <label className="mt-5 flex cursor-pointer items-start gap-3 rounded-xl bg-white/60 p-4 text-sm text-[#14162e]">
+        <input
+          type="checkbox"
+          {...register("includeQuote")}
+          className="mt-0.5 size-4 shrink-0 accent-brand-blue"
+        />
+        <span>
+          {form.includeQuoteLabel}
+          <strong className="font-semibold">{quoteSummary}</strong>
+        </span>
+      </label>
 
       <Button
         type="submit"

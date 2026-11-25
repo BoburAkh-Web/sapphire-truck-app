@@ -47,14 +47,23 @@ function getRoutePath(city: MapCity): string {
 
 const routes = cities.map((city) => ({ ...city, path: getRoutePath(city) }));
 
-function RouteMap() {
+type RouteMapProps = {
+  className?: string;
+};
+
+// Joylashuvi `.hero-aside` (index.css) orqali Hero'dan beriladi
+function RouteMap({ className }: RouteMapProps) {
   const prefersReducedMotion = useReducedMotion();
   const uid = useId().replace(/:/g, "");
   const fadeId = `${uid}-fade`;
   const maskId = `${uid}-mask`;
 
   return (
-    <div className="mt-10 max-w-md">
+    <div className={`relative isolate ${className ?? ""}`}>
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute -inset-8 -z-10 bg-[radial-gradient(closest-side,rgb(237_50_55/0.28),rgb(143_47_120/0.14)_55%,transparent)] blur-2xl"
+      />
       <motion.svg
         viewBox={`0 0 ${viewBox.width} ${viewBox.height}`}
         role="img"
@@ -85,7 +94,7 @@ function RouteMap() {
           mask={`url(#${maskId})`}
           fill="none"
           stroke="#fff"
-          strokeOpacity={0.3}
+          strokeOpacity={0.42}
           strokeWidth={3.4}
           strokeLinecap="round"
           strokeDasharray={`0 ${dotSpacing}`}
@@ -98,8 +107,8 @@ function RouteMap() {
             variants={routeVariants}
             fill="none"
             stroke="#fff"
-            strokeOpacity={0.85}
-            strokeWidth={1.4}
+            strokeOpacity={0.9}
+            strokeWidth={1.6}
             strokeLinecap="round"
           />
         ))}
@@ -120,6 +129,10 @@ function RouteMap() {
               textAnchor={route.anchor}
               variants={fadeVariants}
               fill="#fff"
+              stroke="#14162e"
+              strokeOpacity={0.6}
+              strokeWidth={3}
+              paintOrder="stroke"
               fontSize={12}
               fontWeight={700}
             >
@@ -131,7 +144,12 @@ function RouteMap() {
         {!prefersReducedMotion && (
           <motion.g variants={pulseVariants}>
             {routes.map((route, index) => (
-              <circle key={route.id} r={2.6} fill="#fff">
+              <circle
+                key={route.id}
+                r={2.8}
+                fill="#fff"
+                className="drop-shadow-[0_0_5px_#fff]"
+              >
                 <animateMotion
                   path={route.path}
                   dur={`${3 + index * 0.4}s`}
@@ -167,7 +185,7 @@ function RouteMap() {
         </motion.g>
       </motion.svg>
 
-      <p className="mt-3 flex items-center gap-2 text-xs font-semibold text-white/80">
+      <p className="mt-3 flex items-center gap-2 text-xs font-semibold text-white [text-shadow:0_1px_6px_rgb(0_0_0/0.8)]">
         <span className="size-2 rounded-full bg-brand-red ring-2 ring-white" />
         {hub.name}
       </p>

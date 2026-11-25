@@ -7,6 +7,7 @@ export const contactSchema = z.object({
     .string()
     .trim()
     .max(1000, "Message is too long (max 1000 characters)"),
+  includeQuote: z.boolean(),
 });
 
 export type ContactFormValues = z.infer<typeof contactSchema>;

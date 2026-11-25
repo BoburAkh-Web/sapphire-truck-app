@@ -7,7 +7,7 @@ import { useEffect, useState } from "react";
 import { motion } from "motion/react";
 import { containerVariants, itemVariants } from "../../utils/animations";
 import LightStreaks from "./LightStreaks";
-import RouteCard from "./RouteCard";
+import RouteMap from "./RouteMap";
 const SLIDE_DURATION = 6000;
 
 function Hero() {
@@ -95,7 +95,7 @@ function Hero() {
           </motion.div>
         </motion.div>
 
-        <RouteCard />
+        <RouteMap className="hero-aside motion-safe:animate-float" />
       </Container>
 
       <div className="absolute bottom-7 left-1/2 flex -translate-x-1/2 items-center gap-2.5">

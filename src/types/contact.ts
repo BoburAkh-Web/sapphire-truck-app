@@ -3,6 +3,7 @@ export type ContactFormText = {
   phonePlaceholder: string;
   emailPlaceholder: string;
   messagePlaceholder: string;
+  includeQuoteLabel: string;
   submitLabel: string;
   sendingLabel: string;
   successMessage: string;

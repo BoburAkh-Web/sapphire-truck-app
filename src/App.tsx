@@ -5,13 +5,12 @@ import Hero from "./sections/hero/Hero";
 import WhyUs from "./sections/why-us/WhyUs";
 import Services from "./sections/services/Services";
 import Process from "./sections/process/Process";
-import { useQuoteStore } from "./store/quoteStore";
 import TruckTypes from "./sections/truck-types/TruckTypes";
 import Contact from "./sections/contact/Contact";
+import Footer from "./components/layout/Footer";
+import FloatingActions from "./components/layout/FloatingActions";
 
 function App() {
-  const miles = useQuoteStore((state) => state.miles);
-  const setMiles = useQuoteStore((state) => state.setMiles);
   return (
     <MotionConfig reducedMotion="user">
       <TopBar />
@@ -24,6 +23,8 @@ function App() {
         <TruckTypes />
         <Contact />
       </main>
+      <Footer />
+      <FloatingActions />
     </MotionConfig>
   );
 }

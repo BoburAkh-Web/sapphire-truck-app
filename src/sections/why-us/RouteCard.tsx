@@ -11,11 +11,10 @@ const cardVariants: Variants = {
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.7, delay: 0.8, ease: "easeOut" },
+    transition: { duration: 0.7, delay: 0.4, ease: "easeOut" },
   },
 };
 
-// Joylashuvi `.hero-grid` / `.hero-aside` (index.css): mobilda tugmalar ostida, xl dan boshlab matn yonida o'ngda
 function RouteCard() {
   const prefersReducedMotion = useReducedMotion();
 
@@ -23,10 +22,11 @@ function RouteCard() {
     <motion.div
       variants={cardVariants}
       initial="hidden"
-      animate="visible"
-      className="hero-aside"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.3 }}
+      className="mt-10 max-w-md"
     >
-      <div className="rounded-3xl border border-white/20 bg-white/10 p-5 shadow-xl xl:p-7 shadow-black/20 backdrop-blur-md xl:motion-safe:animate-float">
+      <div className="rounded-3xl border border-white/20 bg-white/10 p-5 shadow-xl shadow-black/20 backdrop-blur-md motion-safe:animate-float">
         <div className="flex items-center justify-between">
           <span className="flex items-center gap-2 text-[11px] font-bold tracking-[0.2em] text-white/80 uppercase xl:text-xs">
             <span className="relative flex size-2">
