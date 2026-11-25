@@ -1,17 +1,15 @@
 import Container from "../ui/Container";
 import logo from "../../assets/logo/logo.png";
 import { navigationData, siteData } from "../../data";
-import { Headset, Menu, Moon, Phone, Sun, X } from "lucide-react";
+import { Headset, Menu, Phone, X } from "lucide-react";
 import Button from "../ui/Button";
 import useScrolled from "../../hooks/useScrolled";
 import { useState } from "react";
-import { useTheme } from "../../context/ThemeContext";
 
 function Header() {
   const mainPhone = siteData.phones[0];
   const isScrolled = useScrolled(20);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const { theme, toggleTheme } = useTheme();
   return (
     <header
       className={`sticky top-0 z-50 text-white shadow-[inset_0_-1px_0_rgb(255_255_255/0.1)] transition-colors duration-300 ${
@@ -52,45 +50,29 @@ function Header() {
           </a>
           <Button href="#contact">Request a quote</Button>
         </div>
-        <div className="flex items-center gap-2">
-          <button
-            type="button"
-            onClick={toggleTheme}
-            aria-label={
-              theme === "dark" ? "Switch to light mode" : "Switch to dark mode"
-            }
-            className="flex size-10 items-center justify-center rounded-lg text-white/70 transition-colors hover:bg-white/10 hover:text-white"
-          >
-            {theme === "dark" ? (
-              <Sun className="size-5" />
-            ) : (
-              <Moon className="size-5" />
-            )}
-          </button>
-          <button
-            type="button"
-            onClick={() => setIsMenuOpen((open) => !open)}
-            aria-label={isMenuOpen ? "Close menu" : "Open menu"}
-            aria-expanded={isMenuOpen}
-            aria-controls="mobile-menu"
-            className="relative flex size-10 items-center justify-center rounded-lg lg:hidden"
-          >
-            <Menu
-              className={`absolute size-6 transition-all duration-300 motion-reduce:transition-none ${
-                isMenuOpen
-                  ? "rotate-90 scale-50 opacity-0"
-                  : "rotate-0 scale-100 opacity-100"
-              }`}
-            />
-            <X
-              className={`absolute size-6 transition-all duration-300 motion-reduce:transition-none ${
-                isMenuOpen
-                  ? "rotate-0 scale-100 opacity-100"
-                  : "-rotate-90 scale-50 opacity-0"
-              }`}
-            />
-          </button>
-        </div>
+        <button
+          type="button"
+          onClick={() => setIsMenuOpen((open) => !open)}
+          aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+          aria-expanded={isMenuOpen}
+          aria-controls="mobile-menu"
+          className="relative flex size-10 items-center justify-center rounded-lg lg:hidden"
+        >
+          <Menu
+            className={`absolute size-6 transition-all duration-300 motion-reduce:transition-none ${
+              isMenuOpen
+                ? "rotate-90 scale-50 opacity-0"
+                : "rotate-0 scale-100 opacity-100"
+            }`}
+          />
+          <X
+            className={`absolute size-6 transition-all duration-300 motion-reduce:transition-none ${
+              isMenuOpen
+                ? "rotate-0 scale-100 opacity-100"
+                : "-rotate-90 scale-50 opacity-0"
+            }`}
+          />
+        </button>
       </Container>
       <div
         id="mobile-menu"
